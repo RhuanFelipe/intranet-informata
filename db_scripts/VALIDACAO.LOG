@@ -1,0 +1,88 @@
+/******************************************************************************/
+/* Aguarde...                                                                 */
+/* Re-Compilando objetos inválidos do Pacote 30.22.04.01                    */
+/* Relatório de objetos inválidos será mostrado no arquivo VALIDACAO.LOG      */
+/******************************************************************************/
+
+********************************************************************************
+* Relação de Objetos Inválidos                                                 *
+********************************************************************************
+OWNER: 
+DBAMDATA OBJETO: FDAT_OBTEM_DESCMAX_FORNECEDOR  TIPO: FUNCTION
+(575) PL/SQL: Statement ignored
+(101) PLS-00201: o identificador 'TNOT1_CALCULO_NOTA_CABECALHO' deve ser declarado
+(573) PL/SQL: Statement ignored
+(573) PLS-00320: a declaracao do tipo desta expressao esta incompleta ou incorreta
+(233) PL/SQL: SQL Statement ignored
+(235) PL/SQL: ORA-00942: a tabela ou view nao existe
+(227) PL/SQL: SQL Statement ignored
+(229) PL/SQL: ORA-00942: a tabela ou view nao existe
+(591) PL/SQL: Statement ignored
+(215) PL/SQL: SQL Statement ignored
+(217) PL/SQL: ORA-00942: a tabela ou view nao existe
+(208) PL/SQL: SQL Statement ignored
+(210) PL/SQL: ORA-00942: a tabela ou view nao existe
+(113) PL/SQL: Item ignored
+(113) PLS-00201: o identificador 'TNOT1_CALCULO_NOTA_CABECALHO' deve ser declarado
+(101) PL/SQL: Item ignored
+(589) PLS-00320: a declaracao do tipo desta expressao esta incompleta ou incorreta
+(589) PL/SQL: Statement ignored
+(591) PLS-00320: a declaracao do tipo desta expressao esta incompleta ou incorreta
+(575) PLS-00320: a declaracao do tipo desta expressao esta incompleta ou incorreta
+********************************************************************************
+OWNER: 
+INFOMLOG OBJETO: PSNS_T113                      TIPO: PROCEDURE
+(99) PL/SQL: SQL Statement ignored
+(99) PL/SQL: ORA-00942: a tabela ou view nao existe
+(87) PL/SQL: SQL Statement ignored
+(96) PL/SQL: ORA-00904: "RCR_EXCLUI"."T113_FORNECEDOR_IE": identificador invalido
+(96) PLS-00364: o uso da variavel 'RCR_EXCLUI' de indice de loop e invalido
+(67) PL/SQL: SQL Statement ignored
+(67) PL/SQL: ORA-00942: a tabela ou view nao existe
+(54) PL/SQL: SQL Statement ignored
+(34) PL/SQL: Item ignored
+(34) PLS-00201: o identificador 'T113.T113_FORNECEDOR_IE' deve ser declarado
+(33) PL/SQL: Item ignored
+(33) PLS-00201: o identificador 'T113.T113_CONDICAO_IE' deve ser declarado
+(32) PL/SQL: Item ignored
+(32) PLS-00201: o identificador 'T113.T113_PROMOCAO_IE' deve ser declarado
+(26) PL/SQL: SQL Statement ignored
+(31) PL/SQL: ORA-00942: a tabela ou view nao existe
+(59) PL/SQL: ORA-00942: a tabela ou view nao existe
+********************************************************************************
+OWNER: 
+INFOMLOG OBJETO: PSNS_T176                      TIPO: PROCEDURE
+(28) PL/SQL: SQL Statement ignored
+(32) PL/SQL: ORA-00942: a tabela ou view nao existe
+(35) PL/SQL: Item ignored
+(36) PLS-00201: o identificador 'T176.T176_FORNECEDOR_IE' deve ser declarado
+(36) PL/SQL: Item ignored
+(37) PLS-00201: o identificador 'T176.T176_PROMOCAO_IE' deve ser declarado
+(37) PL/SQL: Item ignored
+(67) PL/SQL: ORA-00942: a tabela ou view nao existe
+(62) PL/SQL: SQL Statement ignored
+(72) PLS-00320: a declaracao do tipo desta expressao esta incompleta ou incorreta
+(72) PL/SQL: Statement ignored
+(102) PL/SQL: ORA-00942: a tabela ou view nao existe
+(102) PL/SQL: SQL Statement ignored
+(135) PLS-00364: o uso da variavel 'RCR_EXCLUI' de indice de loop e invalido
+(135) PL/SQL: ORA-00904: "RCR_EXCLUI"."T176_FORNECEDOR_IE": identificador invalido
+(127) PL/SQL: SQL Statement ignored
+(139) PL/SQL: ORA-00942: a tabela ou view nao existe
+(139) PL/SQL: SQL Statement ignored
+(35) PLS-00201: o identificador 'T176.T176_DESCITEM_DIFERENC' deve ser declarado
+********************************************************************************
+* ATENÇÃO: Existem 3 objetos inválidos.         *
+********************************************************************************
+* Enviar este arquivo de log gerado para INFORMATA CONSULTORIA DADOS LTDA.     *
+********************************************************************************
+
+Procedimento PL/SQL concluído com sucesso.
+
+Decorrido: 00:00:07.19
+
+HORA FINAL
+--------------------
+25 JUL 2017 19:13:55
+
+Decorrido: 00:00:00.01
