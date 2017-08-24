@@ -18,6 +18,7 @@
 	$invalid = (!isset($_REQUEST['invalid'])) ? '' : $_REQUEST['invalid'];
 	$inEnd = (!isset($_REQUEST['inEnd'])) ? '' : $_REQUEST['inEnd'];
 	@$linhaBanco = $_REQUEST['linhaBanco'];
+	@$bancos = $_REQUEST['bancos'];
 
 	if($consult == 0){
 
@@ -44,7 +45,7 @@
 		$sql = "";
 
 		if($linha != ""){
-			$sql = "select * from DBAMDATA.T994_VERSAO_SISTEMA where T994_VERSAO like '".$linha.".%' order by T994_DATA_APLICACAO desc;";	
+			$sql = "SELECT * FROM DBAMDATA.T994_VERSAO_SISTEMA WHERE T994_VERSAO LIKE '".$linha.".%' ORDER BY T994_DATA_APLICACAO desc;";	
 			if($tipo == 1){
 				$sql = str_replace("DBAMDATA","DBAWMS",$sql);
 				$sql = str_replace("T994","TW994",$sql);
@@ -56,9 +57,9 @@
 		}else{
 			if(($linhaBanco == 17 || $linhaBanco == 30 || $linhaBanco == 60 || $linhaBanco == 10 || $linhaBanco == 11 || 
 				$linhaBanco == 90 || $linhaBanco == 50 || $linhaBanco == 16 || $linhaBanco == 12 || $linhaBanco == 15)){
-					$sql = "select * from DBAMDATA.T994_VERSAO_SISTEMA where T994_VERSAO like '".$linhaBanco.".%' order by T994_DATA_APLICACAO desc;";	
+					$sql = "SELECT * FROM DBAMDATA.T994_VERSAO_SISTEMA WHERE T994_VERSAO LIKE '".$linhaBanco.".%' ORDER BY T994_DATA_APLICACAO desc;";	
 				}else{
-					$sql = "select * from DBAWMS.T994_VERSAO_SISTEMA where T994_VERSAO like '".$linhaBanco.".%' order by T994_DATA_APLICACAO desc;";
+					$sql = "SELECT * FROM DBAWMS.T994_VERSAO_SISTEMA WHERE T994_VERSAO LIKE '".$linhaBanco.".%' ORDER BY T994_DATA_APLICACAO desc;";
 					$sql = str_replace("T994","TW994",$sql);
 				}
 		}
@@ -102,6 +103,8 @@
 				}
 			}
 		}
+	}else if($consult == 3){
+		$sql = 'ALTER USER '.$bancos.' IDENTIFIED BY '.$bancos. ';';
 	}else{
 		$sql = 'aguardando...';
 	}

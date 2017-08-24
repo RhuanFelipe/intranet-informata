@@ -9,20 +9,19 @@
         </div>
         
         <div class="modal-body" >
-        <div id="mudarSenha" class="form-group col-xs-12">
-            <select class="form-control" id="mudarSenha">
-            	<option value="...">Selecione o Banco...</option>
-       			<option value="0">BANCO</option>
-		        <option value="1">DBAMDATA</option>
-       			<option value="2">DBAWMS</option>
-       			<option value="3">INFOWMS</option>
-          		<option value="4">INTEGRA</option>
-       			<option value="5">MDLOG</option>
-    			<option value="6">SCRUM</option>
-       			<option value="7">SYS</option>
-       			<option value="8">SYSTEM</option>
-       			<option value="9">WMS</option>
-   			</select>
+        <div id="bancoSenha" class="form-group col-xs-12">
+            <select class="form-control" id="bancos">
+              <option value="...">Selecione o Banco...</option>
+         			<option value="BANCO">BANCO</option>
+  		        <option value="DBAMDATA">DBAMDATA</option>
+         			<option value="DBAWMS">DBAWMS</option>
+         			<option value="INFOWMS">INFOWMS</option>
+            	<option value="INTEGRA">INTEGRA</option>
+         			<option value="MDLOG">MDLOG</option>
+      			  <option value="SCRUM">SCRUM</option>
+         			<option value="WMS">WMS</option>
+     			  </select>
+               <button type="button" class="btn btn-primary atualizar">Atualizar</button>
           </div>
           <div id="tipoBanco1" class="form-group col-xs-12">
             <label class="radio-inline"><input type="radio" name="optradio" class="optPacote" value='0' checked="checked">Linha</label>
@@ -60,7 +59,7 @@
 	        		<input type="text" name="linha" id="linha" class="form-control">
 	        	</div>
 	        	<div class="col-xs-3" id="btnAtualizar">
-					  <button type="button" class="btn btn-primary atualizar">Atualizar</button>
+					     <button type="button" class="btn btn-primary atualizar">Atualizar</button>
 	        	</div>
 	        </div>
 

@@ -12,9 +12,7 @@
             } else {
               $(".db_check").removeAttr("checked");
             }
-         });
-
-       
+         });      
             
             $(".tipoMsg").change(function(){
 
@@ -84,37 +82,40 @@
 	          if(position == 0){
 	            $("#pacoteMontar").show();
 	            $("#tipoBanco1").hide();
+              $("#bancoSenha").hide();
 	            $("#tipoBanco2").hide();
 	            $("#msgBox").hide();
 	         }else if(position == 1){
 	            $("#tipoBanco1").show();
 	            $("#tipoBanco2").show();
-	        	$("#pacoteMontar").hide();
-	            $("#msgBox").hide();
+	        	  $("#pacoteMontar").hide();
+	            $("#bancoSenha").hide();
+              $("#msgBox").hide();
 	        }else if(position == 2){
 	            $("#tipoBanco1").hide();
 	            $("#tipoBanco2").hide();
 	            $("#pacoteMontar").hide();
+              $("#bancoSenha").hide();
 	            $("#msgBox").show();
 	         }else if(position == 3){
-	           $("#tipoBanco1").hide();
+	            $("#tipoBanco1").hide();
 	            $("#tipoBanco2").hide();
-	        	$("#pacoteMontar").hide();
-	            $("#msgBox").hide();
+	        	  $("#pacoteMontar").hide();
+              $("#msgBox").hide();
+              $("#bancoSenha").show();
 	         }
 
-
         	$("#codigo").load("../db_scripts/script.php?position="+position,function(data){
-
             $('#codigo').html(data);
 
         		$(".atualizar").click(function(){
         			var valor = $("#mudaBanco").val();
         			var linha = $("#linha").val();
-	              var arquivo = $("#arquivo").val();
-	              var tipoRelease = $("#tipoRelease").val();
-	              var banco = $("#banco").val();
-	              var reversao = $("#reversao").val();
+              var arquivo = $("#arquivo").val();
+              var tipoRelease = $("#tipoRelease").val();
+              var banco = $("#banco").val();
+              var reversao = $("#reversao").val();
+
 
         			if(position == 0){
         				$("#codigo").load("../db_scripts/script.php?position="+position+"&tipo="+valor+"&linha="+linha+"&arquivo="+arquivo+"&release="+tipoRelease+"&banco="+banco+"&reversao="+reversao);
@@ -126,12 +127,12 @@
                 var tipoMsg = 0;
                 var responsavel = $('#responsavel').val();
                 responsavel = responsavel.replace(" ","_");
-
                 var numRel = $('#numRel').val();
                 var obj_name = 0;
                 var invalid = $("#invalid").val();
                 var inEnd = $("#inEnd").val();
                 var bases = "";
+
                 $( ".db_check:checked").each(function( index ) {
                   bases += $( this ).val()+ ",";
                 });
@@ -150,6 +151,9 @@
                 bases = bases.substring(0,(bases.length - 1));
 
                 $("#codigo").load("../db_scripts/script.php?position="+position+"&tipoMsg="+tipoMsg+"&responsavel="+responsavel+"&numRel="+numRel+"&bases="+bases+"&obj_name="+obj_name+"&invalid="+invalid+"&inEnd="+inEnd);
+              }else if(position == 3){
+                var bancos = $("#bancos").val();
+                $("#codigo").load("../db_scripts/script.php?position="+position+"&bancos="+bancos);
               }
               $('#codigo').html(data);
 
