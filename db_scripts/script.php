@@ -108,7 +108,27 @@
 		$sql = 'ALTER USER '.$bancos.' IDENTIFIED BY '.$bancos. ';';
 	}else if($consult == 4){
 		$sql = 'ALTER SYSTEM SET JOB_QUEUE_PROCESSES='.$progress.";";
-	}else{
+	}else if($consult == 5){
+		$sessao = 'V$SESSION';
+		$sql = "DECLARE <br>
+			  		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CURSOR c_lista IS<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	select 'ALTER SYSTEM KILL SESSION '''||B.SID||','||B.SERIAL#||''' IMMEDIATE' 
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LINHA<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    FROM $sessao B<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    WHERE B.USERNAME <> 'BANCO';<br>
+				BEGIN<br>
+				  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	FOR vc_lista in c_lista LOOP<br>
+				  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  BEGIN<br>
+				  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  EXECUTE IMMEDIATE vc_lista.linha;<br>
+				  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  EXCEPTION<br>
+				  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  WHEN OTHERS THEN<br>
+				  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;NULL;<br>
+				  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  END;<br>
+				  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	END LOOP;<br>
+				END;<br>
+					/";
+	}
+	else{
 		$sql = 'aguardando...';
 	}
 	

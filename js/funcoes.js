@@ -114,11 +114,19 @@
               $("#msgBox").hide();
               $("#bancoSenha").hide();
               $("#jobsqueres").show();
+           }else if(position == 5){
+              $("#tipoBanco1").hide();
+              $("#tipoBanco2").hide();
+              $("#pacoteMontar").hide();
+              $("#msgBox").hide();
+              $("#bancoSenha").hide();
+              $("#jobsqueres").hide();
+              $("#codigo").load("../db_scripts/script.php?position="+position);
            }
 
         	$("#codigo").load("../db_scripts/script.php?position="+position,function(data){
             $('#codigo').html(data);
-
+            
         		$(".atualizar").click(function(){
         			var valor = $("#mudaBanco").val();
         			var linha = $("#linha").val();

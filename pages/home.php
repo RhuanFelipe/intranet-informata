@@ -12,6 +12,7 @@
                 <li><a href="#" data-toggle="modal" data-target="#myModal">Mensagens e Alertas</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#myModal">Mudar Senha Banco</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#myModal">JOB QUEUE PROCESSES</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal">Tirar usuários da base</a></li>
             </ul>
         </div>
 </div>
