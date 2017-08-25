@@ -23,6 +23,15 @@
      			  </select>
                <button type="button" class="btn btn-primary atualizar">Atualizar</button>
           </div>
+          <div id="jobsqueres" class="form-group col-xs-12">
+            <select class="form-control" id="progress">
+              <option value="...">Selecione os jobs...</option>
+              <?php for($i=0;$i<=100;$i++) { ?>
+                <option value="<?php echo $i;?>"><?php echo $i;?></option>
+              <?php } ?>
+            </select>
+               <button type="button" class="btn btn-primary atualizar">Atualizar</button>
+          </div>
           <div id="tipoBanco1" class="form-group col-xs-12">
             <label class="radio-inline"><input type="radio" name="optradio" class="optPacote" value='0' checked="checked">Linha</label>
             <label class="radio-inline"><input type="radio" name="optradio" class="optPacote" value='1'>Sistema</label>

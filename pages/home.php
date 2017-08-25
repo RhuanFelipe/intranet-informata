@@ -11,6 +11,7 @@
                 <li><a href="#" data-toggle="modal" data-target="#myModal">Versão Pacote</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#myModal">Mensagens e Alertas</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#myModal">Mudar Senha Banco</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal">JOB QUEUE PROCESSES</a></li>
             </ul>
         </div>
 </div>

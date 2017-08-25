@@ -79,21 +79,24 @@
 
         	var position = $(this).index();
 
-	          if(position == 0){
+	         if(position == 0){
 	            $("#pacoteMontar").show();
-	            $("#tipoBanco1").hide();
+              $("#tipoBanco1").hide();
+              $("#jobsqueres").hide();
               $("#bancoSenha").hide();
 	            $("#tipoBanco2").hide();
 	            $("#msgBox").hide();
 	         }else if(position == 1){
 	            $("#tipoBanco1").show();
-	            $("#tipoBanco2").show();
+              $("#tipoBanco2").show();
+              $("#jobsqueres").show();
 	        	  $("#pacoteMontar").hide();
 	            $("#bancoSenha").hide();
               $("#msgBox").hide();
 	        }else if(position == 2){
 	            $("#tipoBanco1").hide();
-	            $("#tipoBanco2").hide();
+              $("#tipoBanco2").hide();
+              $("#jobsqueres").hide();
 	            $("#pacoteMontar").hide();
               $("#bancoSenha").hide();
 	            $("#msgBox").show();
@@ -102,8 +105,16 @@
 	            $("#tipoBanco2").hide();
 	        	  $("#pacoteMontar").hide();
               $("#msgBox").hide();
+              $("#jobsqueres").hide();
               $("#bancoSenha").show();
-	         }
+	         }else if(position == 4){
+              $("#tipoBanco1").hide();
+              $("#tipoBanco2").hide();
+              $("#pacoteMontar").hide();
+              $("#msgBox").hide();
+              $("#bancoSenha").hide();
+              $("#jobsqueres").show();
+           }
 
         	$("#codigo").load("../db_scripts/script.php?position="+position,function(data){
             $('#codigo').html(data);
@@ -154,6 +165,9 @@
               }else if(position == 3){
                 var bancos = $("#bancos").val();
                 $("#codigo").load("../db_scripts/script.php?position="+position+"&bancos="+bancos);
+              }else if(position == 4){
+                var progress = $("#progress").val();
+                $("#codigo").load("../db_scripts/script.php?position="+position+"&progress="+progress);
               }
               $('#codigo').html(data);
 

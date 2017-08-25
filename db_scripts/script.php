@@ -19,6 +19,7 @@
 	$inEnd = (!isset($_REQUEST['inEnd'])) ? '' : $_REQUEST['inEnd'];
 	@$linhaBanco = $_REQUEST['linhaBanco'];
 	@$bancos = $_REQUEST['bancos'];
+	@$progress = $_REQUEST['progress'];
 
 	if($consult == 0){
 
@@ -105,6 +106,8 @@
 		}
 	}else if($consult == 3){
 		$sql = 'ALTER USER '.$bancos.' IDENTIFIED BY '.$bancos. ';';
+	}else if($consult == 4){
+		$sql = 'ALTER SYSTEM SET JOB_QUEUE_PROCESSES='.$progress.";";
 	}else{
 		$sql = 'aguardando...';
 	}
