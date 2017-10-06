@@ -9,7 +9,16 @@
         </div>
         
         <div class="modal-body" >
-        <div id="bancoSenha" class="form-group col-xs-12">
+         <form style="margin-left: 20px;margin-bottom: 10px;" id="optionBanco">
+          <label class="radio-inline">
+            <input type="radio" name="tipoSenha" class="tipoSenha" checked value="0">Desenv.
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="tipoSenha" class="tipoSenha" value="1">Homologação
+          </label>
+         </form>
+
+         <div id="bancoSenha" class="form-group col-xs-12">  
             <select class="form-control" id="bancos">
               <option value="...">Selecione o Banco...</option>
          			<option value="BANCO">BANCO</option>
@@ -101,6 +110,9 @@
               <label class="radio-inline" style="width: 140px;">
                 <input type="radio" value="1" class="tipoMsg" name="tipoMsg">Atualização de Base
               </label>
+               <label class="radio-inline" style="width: 140px;">
+                <input type="radio" value="2" class="tipoMsg" name="tipoMsg">Dumps
+              </label>
                <button type="button" class="btn btn-primary atualizar">Atualizar</button>
             </div>
             <br>        
@@ -139,6 +151,7 @@
                   <input type="radio" value="1" class="inEnd" name="inEnd" >Fim
                 </label>
               </form>
+
             </div>
             <br>        
             <hr>    
@@ -227,6 +240,39 @@
               </form>
             <br>        
             <hr> 
+          </div>
+             <div class="col-xs-12"><!-- usuarios -->
+               <form>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="CARREFPD" class="db_check">DBAMDATA
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="CARREFPH" class="db_check">DBAWMS
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="FORMPD" class="db_check">FARMA
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="FORMSH" class="db_check">INTEGRA
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" value="JGBPD" class="db_check">MDLOG
+                </label>
+                <label class="checkbox-inline" style="margin-left:3px;">
+                  <input type="checkbox" value="JMONTPH" class="db_check">MEDI
+                </label>
+                 <label class="checkbox-inline" style="margin-left:3px;">
+                  <input type="checkbox" value="JMONTPH" class="db_check">INFOMLOG
+                </label>
+                 <label class="checkbox-inline" style="margin-left:3px;">
+                  <input type="checkbox" value="JMONTPH" class="db_check">INFOWMS
+                </label>
+                 <label class="checkbox-inline" style="margin-left:3px;">
+                  <input type="checkbox" value="JMONTPH" class="db_check">WMS
+                </label>
+              </form>
+            <br>        
+            <hr> 
           </div>            
             <div class="col-xs-12" style="margin-top: 10px">
             <form id="form-country_v1" name="form-country_v1">
@@ -234,6 +280,21 @@
                     <div class="typeahead__field">
                         <span class="typeahead__query">
                             <input class="js-typeahead-country_v1" id="responsavel" name="responsavel" type="search" placeholder="Search" autocomplete="off">
+                        </span>
+                        <span class="typeahead__button">
+                            <button type="submit">
+                                <i class="typeahead__search-icon"></i>
+                            </button>
+                        </span>
+             
+                    </div>
+                </div>
+            </form>
+            <form id="form-country_v1" name="form-country_v1" class="clientesForm" style="margin-top: 10px">
+                <div class="typeahead__container">
+                    <div class="typeahead__field">
+                        <span class="typeahead__query">
+                            <input class="js-typeahead-country_v2" id="cliente" name="cliente" type="search" placeholder="Search" autocomplete="off">
                         </span>
                         <span class="typeahead__button">
                             <button type="submit">

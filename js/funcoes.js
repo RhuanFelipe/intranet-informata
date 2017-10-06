@@ -1,10 +1,12 @@
    $(function(){
-         $("#tipoBanco1").hide();
+        $("#tipoBanco1").hide();
          $("#tipoBanco2").hide();
          $("#pacoteMontar").hide();
          $("#msgBox").hide();
          $(".ini").hide();
+         $(".dataDump").hide();
          $(".objetosInv").hide();         
+         $(".clientesForm").hide();         
 
          $(".all").change(function(){
             if(this.checked) {
@@ -18,10 +20,22 @@
 
             if($(this).val() == 0) {
               $(".ini").hide();
+              $(".dataDump").hide();
+              $(".clientesForm").hide();         
+              $("#numRel").show();
               $(".obj").show();
-            } else {
-              $(".ini").show();
-              $(".obj").hide();
+            } else if($(this).val() == 1){
+             $(".ini").show();
+             $(".dataDump").hide();
+             $(".clientesForm").hide();         
+             $(".obj").hide();
+             $("#numRel").hide();
+            } else if($(this).val() == 2){
+             $(".ini").hide();
+             $(".obj").hide();
+             $("#numRel").hide();
+             $(".clientesForm").show();         
+             $(".dataDump").show();
             }
          });
 
@@ -84,14 +98,16 @@
               $("#tipoBanco1").hide();
               $("#jobsqueres").hide();
               $("#bancoSenha").hide();
-	            $("#tipoBanco2").hide();
+              $("#tipoBanco2").hide();
+              $("#optionBanco").hide();
 	            $("#msgBox").hide();
 	         }else if(position == 1){
 	            $("#tipoBanco1").show();
               $("#tipoBanco2").show();
-              $("#jobsqueres").show();
+              $("#jobsqueres").hide();
 	        	  $("#pacoteMontar").hide();
 	            $("#bancoSenha").hide();
+              $("#optionBanco").hide();
               $("#msgBox").hide();
 	        }else if(position == 2){
 	            $("#tipoBanco1").hide();
@@ -99,6 +115,7 @@
               $("#jobsqueres").hide();
 	            $("#pacoteMontar").hide();
               $("#bancoSenha").hide();
+              $("#optionBanco").hide();
 	            $("#msgBox").show();
 	         }else if(position == 3){
 	            $("#tipoBanco1").hide();
@@ -106,12 +123,14 @@
 	        	  $("#pacoteMontar").hide();
               $("#msgBox").hide();
               $("#jobsqueres").hide();
+              $("#optionBanco").show();
               $("#bancoSenha").show();
 	         }else if(position == 4){
               $("#tipoBanco1").hide();
               $("#tipoBanco2").hide();
               $("#pacoteMontar").hide();
               $("#msgBox").hide();
+              $("#optionBanco").hide();
               $("#bancoSenha").hide();
               $("#jobsqueres").show();
            }else if(position == 5){
@@ -119,6 +138,7 @@
               $("#tipoBanco2").hide();
               $("#pacoteMontar").hide();
               $("#msgBox").hide();
+              $("#optionBanco").hide();
               $("#bancoSenha").hide();
               $("#jobsqueres").hide();
               $("#codigo").load("../db_scripts/script.php?position="+position);
@@ -134,7 +154,6 @@
               var tipoRelease = $("#tipoRelease").val();
               var banco = $("#banco").val();
               var reversao = $("#reversao").val();
-
 
         			if(position == 0){
         				$("#codigo").load("../db_scripts/script.php?position="+position+"&tipo="+valor+"&linha="+linha+"&arquivo="+arquivo+"&release="+tipoRelease+"&banco="+banco+"&reversao="+reversao);
@@ -172,13 +191,13 @@
                 $("#codigo").load("../db_scripts/script.php?position="+position+"&tipoMsg="+tipoMsg+"&responsavel="+responsavel+"&numRel="+numRel+"&bases="+bases+"&obj_name="+obj_name+"&invalid="+invalid+"&inEnd="+inEnd);
               }else if(position == 3){
                 var bancos = $("#bancos").val();
-                $("#codigo").load("../db_scripts/script.php?position="+position+"&bancos="+bancos);
+                var tipoSenha = $('input[name=tipoSenha]:checked').val();
+                $("#codigo").load("../db_scripts/script.php?position="+position+"&bancos="+bancos+"&tipoSenha="+tipoSenha);
               }else if(position == 4){
                 var progress = $("#progress").val();
                 $("#codigo").load("../db_scripts/script.php?position="+position+"&progress="+progress);
               }
               $('#codigo').html(data);
-
         		});
         	});
         });
@@ -210,7 +229,30 @@
 	            console.log('Typeahead Não iniciada' + node.selector);
 	        }
 	    }
-	});
+	   });
+      $.typeahead({
+      input: '.js-typeahead-country_v2',
+      order: "desc",
+      source: {
+          data: [
+              "Carrefour",
+              "Formaggio",
+              "Jorge Batista",  
+              "J. Monte",
+              "Negrão",
+              "Potiguar",
+              "São Bento",
+              "Terra Zoo",
+              "Walmart",
+              "Pererê"
+          ]
+      },
+      callback: {
+          onInit: function (node) {
+              console.log('Typeahead Não iniciada' + node.selector);
+          }
+      }
+     });
   });
 
 

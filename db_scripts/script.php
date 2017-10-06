@@ -20,7 +20,7 @@
 	@$linhaBanco = $_REQUEST['linhaBanco'];
 	@$bancos = $_REQUEST['bancos'];
 	@$progress = $_REQUEST['progress'];
-
+	@$tipoSenha = $_REQUEST['tipoSenha'];
 	if($consult == 0){
 
 		if($release == 0)
@@ -57,7 +57,8 @@
 
 		}else{
 			if(($linhaBanco == 17 || $linhaBanco == 30 || $linhaBanco == 60 || $linhaBanco == 10 || $linhaBanco == 11 || 
-				$linhaBanco == 90 || $linhaBanco == 50 || $linhaBanco == 16 || $linhaBanco == 12 || $linhaBanco == 15)){
+				$linhaBanco == 90 || $linhaBanco == 50 || $linhaBanco == 16 || $linhaBanco == 12 || $linhaBanco == 15 || 
+				$linhaBanco == 40)){
 					$sql = "SELECT * FROM DBAMDATA.T994_VERSAO_SISTEMA WHERE T994_VERSAO LIKE '".$linhaBanco.".%' ORDER BY T994_DATA_APLICACAO desc;";	
 				}else{
 					$sql = "SELECT * FROM DBAWMS.T994_VERSAO_SISTEMA WHERE T994_VERSAO LIKE '".$linhaBanco.".%' ORDER BY T994_DATA_APLICACAO desc;";
@@ -105,7 +106,17 @@
 			}
 		}
 	}else if($consult == 3){
-		$sql = 'ALTER USER '.$bancos.' IDENTIFIED BY '.$bancos. ';';
+		if($tipoSenha == 0){
+			$sql = 'ALTER USER '.$bancos.' IDENTIFIED BY '.$bancos. ';';
+		}else if($tipoSenha == 1){
+			if($bancos === 'DBAMDATA'){
+				$sql = 'ALTER USER '.$bancos.' IDENTIFIED BY a52116';
+			}else if($bancos === 'DBAWMS'){
+				$sql = 'ALTER USER '.$bancos.' IDENTIFIED BY s52116';
+			}else{
+				$sql = 'ALTER USER '.$bancos.' IDENTIFIED BY '.$bancos. ';';
+			}
+		}
 	}else if($consult == 4){
 		$sql = 'ALTER SYSTEM SET JOB_QUEUE_PROCESSES='.$progress.";";
 	}else if($consult == 5){
